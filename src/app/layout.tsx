@@ -6,30 +6,12 @@ import ThemeToggle from "../components/ThemeToggle";
 import AccentPicker from "../components/AccentPicker";
 import MegaMenu from "../components/MegaMenu";
 import ParticleBackground from "../components/ParticleBackground";
-import { useEffect } from "react";
+import HeaderScript from "../components/HeaderScript"; // moved out
 
 export const metadata: Metadata = {
   title: "Alphine AI",
   description: "AI Solutions for Businesses",
 };
-
-// Note: Next.js App Router allows client wrappers via body children. We'll attach a small script for compact header.
-function HeaderScript() {
-  useEffect(() => {
-    const header = document.getElementById("site-header");
-    let last = window.scrollY;
-    const onScroll = () => {
-      const cur = window.scrollY;
-      if (!header) return;
-      if (cur > 24) header.classList.add("header-compact");
-      else header.classList.remove("header-compact");
-      last = cur;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return null;
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,10 +21,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ParticleBackground />
 
         {/* Floating/Compact Navbar */}
-        <header id="site-header" className="sticky top-0 bg-white/90 dark:bg-gray-900/80 backdrop-blur-md shadow-md z-50 transition-all">
+        <header
+          id="site-header"
+          className="sticky top-0 bg-white/90 dark:bg-gray-900/80 backdrop-blur-md shadow-md z-50 transition-all"
+        >
           <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             <Link href="/" className="flex items-center space-x-3 group">
-              <Image src="/logo.png" alt="Alphine AI Logo" width={44} height={44} priority className="rounded-full group-hover:shadow-neon transition-shadow" />
+              <Image
+                src="/logo.png"
+                alt="Alphine AI Logo"
+                width={44}
+                height={44}
+                priority
+                className="rounded-full group-hover:shadow-neon transition-shadow"
+              />
               <span className="text-xl font-bold">Alphine AI</span>
             </Link>
 
@@ -59,6 +51,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </div>
         </header>
+
+        {/* Shrink-on-scroll logic (client only) */}
         <HeaderScript />
 
         {/* Page Content */}

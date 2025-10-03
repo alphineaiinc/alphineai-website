@@ -1,8 +1,12 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export default function ParticleBackground() {
-  const ref = useRef<HTMLCanvasElement | null>(null);
+  useEffect(() => {
+    console.log("Particles init...");
+  }, []);
+  return <div id="particles" />;
+}
 
   useEffect(() => {
     const canvas = ref.current!;
