@@ -1,37 +1,35 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const { name, email, message } = await req.json();
+    const body = await req.json();
 
-    console.log("📩 Contact form data:", { name, email, message });
+    const { name, email, message } = body;
 
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_SERVER,
-      port: Number(process.env.EMAIL_PORT),
-      secure: true,
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: true, // true for port 465
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
-    const info = await transporter.sendMail({
-      from: `"Alphine AI Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO,
-      subject: `New Contact Form Submission from ${name}`,
+    await transporter.sendMail({
+      from: `"AlphineAI Website" <${process.env.SMTP_USER}>`,
+      to: process.env.TO_EMAIL,
+      subject: "New Contact Form Submission",
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      html: `<p><b>Name:</b> ${name}</p>
-             <p><b>Email:</b> ${email}</p>
-             <p><b>Message:</b><br/>${message}</p>`,
+      html: `<p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong> ${message}</p>`,
     });
 
-    console.log("✅ Email sent:", info.messageId);
-
     return NextResponse.json({ success: true });
-  } catch (err: any) {
-    console.error("❌ Email send error:", err);
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  } catch (error: unknown) {
+    console.error("Contact form error:", error);
+    return NextResponse.json({ success: false }, { status: 500 });
   }
 }
