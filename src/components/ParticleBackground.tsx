@@ -1,16 +1,16 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ParticleBackground() {
-  useEffect(() => {
-    console.log("Particles init...");
-  }, []);
-  return <div id="particles" />;
-}
+  const ref = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const canvas = ref.current!;
-    const ctx = canvas.getContext("2d")!;
+    const canvas = ref.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
     let raf = 0;
@@ -25,7 +25,7 @@ export default function ParticleBackground() {
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "rgba(250, 204, 21, 0.25)"; // accent-ish
+      ctx.fillStyle = "rgba(250, 204, 21, 0.25)"; // accent color-ish
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -45,11 +45,24 @@ export default function ParticleBackground() {
 
     window.addEventListener("resize", onResize);
     draw();
+
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
     };
   }, []);
 
-  return <canvas id="particles" ref={ref} />;
+  return (
+    <canvas
+      id="particles"
+      ref={ref}
+      style={{
+        position: "fixed",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: -1,
+      }}
+    />
+  );
 }
