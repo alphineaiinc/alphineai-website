@@ -30,7 +30,14 @@ export default function Home() {
         </div>
 
         {/* Logo */}
-        <Image src="/logo.png" alt="Alphine AI Logo" width={120} height={120} className="mb-4 relative z-10" />
+        <Image
+  src="/logo.png"
+  alt="Alphine AI Logo"
+  width={120}
+  height={120}
+  className="mb-4 relative z-10 logo-gold"
+/>
+
 
         {/* Title */}
         <h1 className="text-6xl font-extrabold hero-gold sparkle-hover relative z-10">

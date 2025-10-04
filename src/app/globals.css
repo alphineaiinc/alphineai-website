@@ -174,3 +174,15 @@
   20%  { opacity: 1; }
   100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
+
+/* Golden glow for logo */
+.logo-gold {
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))
+          drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+  transition: filter 0.3s ease;
+}
+
+.logo-gold:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
+          drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+}
