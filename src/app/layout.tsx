@@ -18,20 +18,45 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Header */}
         <header className="sticky top-0 z-50 bg-gray-800/70 backdrop-blur-lg border-b border-gray-700 shadow-md">
           <div className="max-w-7xl mx-auto flex items-center justify-end px-8 py-4 space-x-6">
+            {/* New Home button */}
             <Link
-              href="/about"
+              href="/"
+              className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
+            >
+              Home
+            </Link>
+            <Link
+              href="#about"
               className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
             >
               About
             </Link>
             <Link
-              href="/products"
+              href="#products"
               className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
             >
               Products
             </Link>
             <Link
-              href="/contact"
+              href="/how-it-works"
+              className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
+            >
+              How It Works
+            </Link>
+            <Link
+              href="/case-studies"
+              className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
+            >
+              Case Studies
+            </Link>
+            <Link
+              href="/media"
+              className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
+            >
+              Media
+            </Link>
+            <Link
+              href="#contact"
               className="text-gray-300 hover:text-yellow-400 font-medium transition-all duration-300"
             >
               Contact
@@ -54,9 +79,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="mt-8 px-6 pb-10">
           <div className="max-w-7xl mx-auto p-6 text-sm text-gray-400 border-t border-gray-700">
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/about" className="hover:text-yellow-400 transition">About</Link>
-              <Link href="/products" className="hover:text-yellow-400 transition">Products</Link>
-              <Link href="/contact" className="hover:text-yellow-400 transition">Contact</Link>
+              <Link href="/" className="hover:text-yellow-400 transition">Home</Link>
+              <Link href="#about" className="hover:text-yellow-400 transition">About</Link>
+              <Link href="#products" className="hover:text-yellow-400 transition">Products</Link>
+              <Link href="/how-it-works" className="hover:text-yellow-400 transition">How It Works</Link>
+              <Link href="/case-studies" className="hover:text-yellow-400 transition">Case Studies</Link>
+              <Link href="/media" className="hover:text-yellow-400 transition">Media</Link>
+              <Link href="#contact" className="hover:text-yellow-400 transition">Contact</Link>
               <Link href="/privacy" className="hover:text-yellow-400 transition">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-yellow-400 transition">Terms of Service</Link>
               <Link href="/cookies" className="hover:text-yellow-400 transition">Cookies</Link>
