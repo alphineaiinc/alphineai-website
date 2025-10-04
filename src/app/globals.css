@@ -186,3 +186,51 @@
   filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
           drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
 }
+/* Ensure normal text stays white */
+p, input, textarea, label, div {
+  color: white;
+}
+
+/* Override inside glass panels */
+.glass {
+  color: white;
+}
+/* ===================== */
+/* Global Text Colors */
+/* ===================== */
+
+/* All text defaults to white except hero title */
+body, p, h2, h3, h4, h5, h6, a, input, textarea, label, div, span, footer {
+  color: white;
+}
+
+/* Hero title remains black with golden glow */
+.hero-gold {
+  color: black;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow:
+    0 0 12px rgba(255, 215, 0, 0.7),
+    0 0 24px rgba(255, 215, 0, 0.5),
+    0 0 36px rgba(255, 215, 0, 0.3);
+}
+
+.sparkle-hover:hover {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.7); }
+  50% { text-shadow: 0 0 32px rgba(255, 215, 0, 1), 0 0 52px rgba(255, 215, 0, 0.8); }
+}
+
+/* Golden glow for logo */
+.logo-gold {
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))
+          drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+  transition: filter 0.3s ease;
+}
+.logo-gold:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
+          drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+}

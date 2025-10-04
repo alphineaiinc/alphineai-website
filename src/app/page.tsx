@@ -118,9 +118,10 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="text-center py-6 text-white opacity-80 text-sm">
+     <footer className="text-center py-6 text-white opacity-80 text-sm">
   © {new Date().getFullYear()} Alphine AI. All rights reserved.
 </footer>
+
 
     </div>
   );
