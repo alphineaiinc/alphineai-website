@@ -1,23 +1,15 @@
-export default function PrivacyPolicy() {
+export default function Privacy() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
-      <p className="text-gray-700 mb-4">
-        At Alphine AI, your privacy is very important to us. This Privacy Policy explains
-        how we collect, use, and protect your information when you use our services.
-      </p>
-      <p className="text-gray-700 mb-4">
-        We may collect personal information such as your name, email address, and phone
-        number when you interact with our website or services. This information will be
-        used only for business purposes such as providing services, responding to inquiries,
-        and improving our offerings.
-      </p>
-      <p className="text-gray-700">
-        For more details or questions, please contact us at{" "}
-        <a href="mailto:contact@alphineai.com" className="text-yellow-500">
-          contact@alphineai.com
-        </a>.
-      </p>
-    </main>
+    <div className="max-w-3xl mx-auto py-12 space-y-6">
+      <h1 className="text-4xl font-bold">Privacy Policy</h1>
+      <p>We collect and process only what’s needed to deliver our services. We don’t sell personal data. We use encryption in transit and at rest, apply least-privilege access, and retain logs minimally. Contact privacy@alphineai.com for requests.</p>
+      <ul className="list-disc list-inside space-y-2">
+        <li>Data we collect: account/contact details, usage logs, content you submit.</li>
+        <li>Purposes: service delivery, security, support, analytics.</li>
+        <li>Sharing: processors under contract only; no sale of personal data.</li>
+        <li>Rights: access, correction, deletion where applicable.</li>
+        <li>Security: encryption, access controls, ongoing monitoring.</li>
+      </ul>
+    </div>
   );
 }

@@ -1,21 +1,15 @@
-export default function TermsOfService() {
+export default function Terms() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-6">Terms of Service</h1>
-      <p className="text-gray-700 mb-4">
-        By accessing or using Alphine AI’s website and services, you agree to comply with
-        and be bound by these Terms of Service.
-      </p>
-      <p className="text-gray-700 mb-4">
-        Our services are provided “as is” without warranties of any kind. Alphine AI is not
-        liable for damages arising from the use or inability to use our services. Users are
-        responsible for ensuring lawful use of our services in accordance with applicable
-        regulations.
-      </p>
-      <p className="text-gray-700">
-        These terms may be updated periodically. Continued use of our services indicates
-        acceptance of any changes.
-      </p>
-    </main>
+    <div className="max-w-3xl mx-auto py-12 space-y-6">
+      <h1 className="text-4xl font-bold">Terms of Service</h1>
+      <p>By using Alphine AI services, you agree to these terms. Use services lawfully, respect IP and privacy, and do not misuse or attempt to bypass security. Services are provided “as is”. We may update terms; continued use means acceptance.</p>
+      <ul className="list-disc list-inside space-y-2">
+        <li>Acceptable use and prohibited conduct.</li>
+        <li>Account responsibilities and security.</li>
+        <li>Payment & subscription (if applicable).</li>
+        <li>Limitations of liability and warranty disclaimer.</li>
+        <li>Governing law & dispute resolution.</li>
+      </ul>
+    </div>
   );
 }

@@ -1,20 +1,8 @@
-export default function CookiesPolicy() {
+export default function Cookies() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-6">Cookies Policy</h1>
-      <p className="text-gray-700 mb-4">
-        Alphine AI uses cookies and similar technologies to enhance your browsing experience,
-        analyze traffic, and improve our services.
-      </p>
-      <p className="text-gray-700 mb-4">
-        Cookies are small files stored on your device that help us remember preferences and
-        provide a more personalized experience. You can manage or disable cookies in your
-        browser settings.
-      </p>
-      <p className="text-gray-700">
-        By continuing to use our website, you consent to our use of cookies in accordance
-        with this policy.
-      </p>
-    </main>
+    <div className="max-w-3xl mx-auto py-12 space-y-6">
+      <h1 className="text-4xl font-bold">Cookies</h1>
+      <p>We use essential cookies for site functionality and optional analytics cookies to improve performance. You can change preferences via your browser. Third-party providers may set their own cookies subject to their policies.</p>
+    </div>
   );
 }

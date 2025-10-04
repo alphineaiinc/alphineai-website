@@ -1,12 +1,6 @@
 import "./globals.css";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import ThemeToggle from "../components/ThemeToggle";
-import AccentPicker from "../components/AccentPicker";
-import MegaMenu from "../components/MegaMenu";
-import ParticleBackground from "../components/ParticleBackground";
-import HeaderScript from "../components/HeaderScript"; // moved out
 
 export const metadata: Metadata = {
   title: "Alphine AI",
@@ -16,77 +10,34 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-[image:var(--bg,none)] bg-no-repeat bg-fixed text-gray-900 dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300">
-        {/* Backdrop particle field */}
-        <ParticleBackground />
-
-        {/* Floating/Compact Navbar */}
-        <header
-          id="site-header"
-          className="sticky top-0 bg-white/90 dark:bg-gray-900/80 backdrop-blur-md shadow-md z-50 transition-all"
-        >
+      <body className="min-h-screen flex flex-col">
+        <header className="sticky top-0 z-50 bg-white/30 backdrop-blur-lg border-b border-white/20 shadow-md">
           <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <Image
-                src="/logo.png"
-                alt="Alphine AI Logo"
-                width={44}
-                height={44}
-                priority
-                className="rounded-full group-hover:shadow-neon transition-shadow"
-              />
-              <span className="text-xl font-bold">Alphine AI</span>
-            </Link>
-
-            <nav className="flex items-center gap-6 font-medium">
-              <Link href="/" className="hover:text-accent transition">Home</Link>
-              <MegaMenu />
-              <Link href="/about" className="hover:text-accent transition">About</Link>
-              <Link href="/contact" className="hover:text-accent transition">Contact</Link>
-              <Link href="/blog" className="hover:text-accent transition">Blog</Link>
-              <div className="hidden md:flex items-center gap-3 pl-3 border-l border-gray-200 dark:border-gray-700">
-                <AccentPicker />
-                <ThemeToggle />
-              </div>
+            <a href="#hero" className="font-bold text-xl">Alphine AI</a>
+            <nav className="flex gap-3">
+              <a href="#products" className="btn-glass-glow">Products</a>
+              <a href="#about" className="btn-glass-glow">About</a>
+              <a href="#contact" className="btn-glass-glow">Contact</a>
+              <a href="#demo" className="btn-glass-glow">Book a Demo</a>
             </nav>
           </div>
         </header>
 
-        {/* Shrink-on-scroll logic (client only) */}
-        <HeaderScript />
-
-        {/* Page Content */}
-        <main className="flex-grow max-w-7xl mx-auto px-6 py-12 relative z-10">
+        <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-10">
           {children}
         </main>
 
-        {/* Global Footer */}
-        <footer className="bg-gray-900 dark:bg-black text-gray-300 mt-12">
-          <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-              <h4 className="font-semibold text-accent mb-3">Company</h4>
-              <ul className="space-y-2">
-                <li><Link href="/about" className="hover:text-accent">About</Link></li>
-                <li><Link href="/services" className="hover:text-accent">Services</Link></li>
-                <li><Link href="/blog" className="hover:text-accent">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-accent">Contact</Link></li>
-              </ul>
+        <footer className="mt-8 px-6 pb-10">
+          <div className="glass max-w-7xl mx-auto p-6 text-sm text-gray-600">
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a href="#about" className="underline">About</a>
+              <a href="#products" className="underline">Products</a>
+              <a href="#contact" className="underline">Contact</a>
+              <Link href="/privacy" className="underline">Privacy Policy</Link>
+              <Link href="/terms" className="underline">Terms of Service</Link>
+              <Link href="/cookies" className="underline">Cookies</Link>
             </div>
-            <div>
-              <h4 className="font-semibold text-accent mb-3">Legal</h4>
-              <ul className="space-y-2">
-                <li><Link href="/privacy" className="hover:text-accent">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-accent">Terms of Service</Link></li>
-                <li><Link href="/cookies" className="hover:text-accent">Cookies</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-accent mb-3">Contact</h4>
-              <p>📧 contact@alphineai.com</p>
-            </div>
-          </div>
-          <div className="text-center py-4 border-t border-gray-800 text-gray-400">
-            © {new Date().getFullYear()} Alphine AI. All Rights Reserved.
+            <div className="mt-3 text-center">© {new Date().getFullYear()} Alphine AI. All rights reserved.</div>
           </div>
         </footer>
       </body>
