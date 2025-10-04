@@ -18,19 +18,21 @@ export default function Home() {
         className="pt-10 pb-12 relative flex flex-col items-center text-center px-4"
       >
         {/* Background particles */}
-        <div className="hero-particles">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <span
-              key={i}
-              className="hero-particle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDuration: `${4 + Math.random() * 6}s`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            />
-          ))}
-        </div>
+        {/* Gold Dust Parallax Layer */}
+<div className="hero-gold-dust">
+  {Array.from({ length: 25 }).map((_, i) => (
+    <span
+      key={i}
+      style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDuration: `${10 + Math.random() * 10}s`,
+        animationDelay: `${Math.random() * 10}s`,
+      }}
+    />
+  ))}
+</div>
+
 
         {/* Logo */}
         <Image
