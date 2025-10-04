@@ -31,7 +31,6 @@ export default function Home() {
 
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("deviceorientation", handleMove);
-
     return () => {
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("deviceorientation", handleMove);
@@ -92,7 +91,8 @@ export default function Home() {
 
         {/* Subtitle */}
         <p className="max-w-2xl mx-auto mt-5 glass p-3 sm:p-4 relative z-10 text-base sm:text-lg">
-          The future of AI for businesses — chat, voice, and automation that actually moves your metrics.
+          Transforming global events and intelligence with real-time AI analytics.  
+          From roadshows and rallies to virtual summits — we capture every voice, presence, and pulse on Earth.
         </p>
 
         {/* Hero Buttons */}
@@ -100,11 +100,11 @@ export default function Home() {
           id="demo"
           className="mt-6 flex flex-col sm:flex-row gap-4 justify-center relative z-10 w-full max-w-sm mx-auto"
         >
-          <a href="#contact" className="btn-glass-glow w-full sm:w-auto text-center">
-            Book a Demo
-          </a>
           <a href="#products" className="btn-glass-glow w-full sm:w-auto text-center">
-            See Products
+            Explore Solutions
+          </a>
+          <a href="#contact" className="btn-glass-glow w-full sm:w-auto text-center">
+            Contact Us
           </a>
         </div>
       </section>
@@ -112,40 +112,39 @@ export default function Home() {
       {/* PRODUCTS */}
       <section id="products" className="scroll-mt-20 px-4">
         <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
-          Products
+          Solutions
         </h2>
         <div className="grid md:grid-cols-3 gap-6 mt-10">
           <div className="glass p-6">
-            <h3 className="text-xl font-semibold mb-2">Automated Call Attender (ACA)</h3>
+            <h3 className="text-xl font-semibold mb-2">Event Intelligence Platform (EIP)</h3>
             <p>
-              Real-time voice agent that answers calls, takes orders, and handles FAQs with live STT/TTS.
+              Measure real and virtual attendance for rallies, concerts, and global events using AI vision,
+              GPS, and heat-map analytics. See true participation in real time — on the ground and online.
             </p>
             <div className="mt-4">
-              <a href="#contact" className="btn-glass-glow">
-                Request Demo
-              </a>
+              <a href="#contact" className="btn-glass-glow">Request Demo</a>
             </div>
           </div>
+
           <div className="glass p-6">
-            <h3 className="text-xl font-semibold mb-2">AI Chatbots</h3>
+            <h3 className="text-xl font-semibold mb-2">AI Communication Suite</h3>
             <p>
-              Website and WhatsApp chatbots with retrieval, function-calling, and analytics.
+              Next-generation voice and chat automation for campaigns, conferences, and enterprises.
+              Engage millions simultaneously with natural, intelligent dialogue.
             </p>
             <div className="mt-4">
-              <a href="#contact" className="btn-glass-glow">
-                Request Demo
-              </a>
+              <a href="#contact" className="btn-glass-glow">Request Demo</a>
             </div>
           </div>
+
           <div className="glass p-6">
-            <h3 className="text-xl font-semibold mb-2">Social Media AI</h3>
+            <h3 className="text-xl font-semibold mb-2">AI Data Orchestrator</h3>
             <p>
-              Generate, schedule, and monitor posts across platforms with brand-safe prompts.
+              Connect voice, text, and sensor data into one cognitive layer.  
+              Convert raw participation metrics into real-time insights and predictive intelligence.
             </p>
             <div className="mt-4">
-              <a href="#contact" className="btn-glass-glow">
-                Request Demo
-              </a>
+              <a href="#contact" className="btn-glass-glow">Request Demo</a>
             </div>
           </div>
         </div>
@@ -158,21 +157,34 @@ export default function Home() {
         </h2>
         <div className="max-w-3xl mx-auto mt-8 space-y-4">
           <p>
-            Alphine AI builds practical AI for small and medium businesses. We focus on voice bots, chat automation,
-            and operational AI that shortens response times and drives revenue.
+            Alphine AI is redefining how humanity measures and understands presence.  
+            We build intelligent systems that detect, analyze, and visualize global participation — from
+            political roadshows to international gatherings — combining computer vision, sensor fusion,
+            and conversational AI.
           </p>
           <p>
-            Our pillars: <strong>Trust</strong> (data minimization & encryption),{" "}
-            <strong>Value</strong> (rapid ROI), and <strong>Clarity</strong> (explainable decisions and transparent metrics).
+            <strong>Vision:</strong> To create a futuristic, data-driven planet where every event,
+            interaction, and decision is empowered by AI transparency and precision.
+          </p>
+          <p>
+            <strong>Mission:</strong> Deliver ethical, scalable AI infrastructure that bridges physical
+            and virtual worlds — providing clarity, accountability, and real-time intelligence for global
+            organizations, governments, and enterprises.
           </p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="glass p-4">
-              <b>Vision</b>
-              <div>Make high-quality AI accessible to every local business.</div>
+              <b>Values</b>
+              <div>
+                <strong>Futurism • Integrity • Impact</strong><br />
+                Every solution is designed to move humanity closer to a smarter, more connected future.
+              </div>
             </div>
             <div className="glass p-4">
-              <b>Mission</b>
-              <div>Deliver measurable outcomes with delightful customer experiences.</div>
+              <b>Technology</b>
+              <div>
+                AI Vision, Heat-Map Analytics, Conversational AI, and Geo-Intelligence
+                unified for one purpose — truth through data.
+              </div>
             </div>
             <div className="glass p-4">
               <b>Motto</b>
@@ -192,17 +204,18 @@ export default function Home() {
             <input type="text" placeholder="Your Name" className="glass px-4 py-2 w-full" />
             <input type="email" placeholder="Your Email" className="glass px-4 py-2 w-full" />
             <textarea placeholder="Message" rows={5} className="glass px-4 py-2 w-full"></textarea>
-            <button type="submit" className="btn-glass-glow">
-              Send Message
-            </button>
+            <button type="submit" className="btn-glass-glow">Send Message</button>
           </form>
-          <div className="text-sm mt-4 opacity-80">Or email: contact@alphineai.com</div>
+          <div className="text-sm mt-4 opacity-80">
+            For partnerships, enterprise deployments or media queries, email us at 
+            <strong> contact@alphineai.com</strong>.
+          </div>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer className="text-center py-6 text-white opacity-80 text-sm">
-        © {new Date().getFullYear()} Alphine AI. All rights reserved.
+        © {new Date().getFullYear()} Alphine AI — Pioneering global AI attendance and intelligence platforms.
       </footer>
     </div>
   );
