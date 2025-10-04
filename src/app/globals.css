@@ -2,158 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===================== */
-/* Glassy Panels */
-/* ===================== */
+/* ===================================== */
+/*  Aurora Tech — Dark Blue Violet Theme */
+/* ===================================== */
+
+/* ---- Glass Panels ---- */
 .glass {
-  background: rgba(240, 240, 240, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
-  color: black;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+  color: white;
 }
 
-/* ===================== */
-/* Hero Title - Black + Golden Glow */
-/* ===================== */
+/* ---- Hero Title (Aurora Glow) ---- */
 .hero-gold {
-  color: black;
+  color: #E5E9F0;
   font-weight: 900;
   letter-spacing: 0.05em;
   text-shadow:
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);
+    0 0 10px rgba(138, 43, 226, 0.8),
+    0 0 20px rgba(0, 191, 255, 0.7),
+    0 0 40px rgba(0, 191, 255, 0.4);
 }
 
 .sparkle-hover:hover {
   animation: sparkle 1.5s ease-in-out infinite;
 }
-
 @keyframes sparkle {
-  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.7); }
-  50% { text-shadow: 0 0 32px rgba(255, 215, 0, 1), 0 0 52px rgba(255, 215, 0, 0.8); }
+  0%, 100% { text-shadow: 0 0 12px rgba(0,191,255,0.8); }
+  50%      { text-shadow: 0 0 30px rgba(138,43,226,1),
+                        0 0 60px rgba(0,191,255,0.8); }
 }
 
-/* ===================== */
-/* Section Titles - Turquoise Glow */
-/* ===================== */
+/* ---- Logo Glow ---- */
+.logo-gold {
+  filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.8))
+          drop-shadow(0 0 20px rgba(0, 191, 255, 0.6));
+  transition: filter 0.3s ease;
+}
+.logo-gold:hover {
+  filter: drop-shadow(0 0 20px rgba(138, 43, 226, 1))
+          drop-shadow(0 0 40px rgba(0, 191, 255, 0.9));
+}
+
+/* ---- Section Titles ---- */
 .title-turquoise {
-  color: black;
+  color: #E5E9F0;
   text-shadow:
-    0 0 12px rgba(64, 224, 208, 0.7),
-    0 0 24px rgba(64, 224, 208, 0.5);
+    0 0 12px rgba(0,191,255,0.8),
+    0 0 25px rgba(138,43,226,0.7);
 }
 
-/* ===================== */
-/* Buttons - Turquoise Glow */
-/* ===================== */
+/* ---- Buttons ---- */
 .btn-glass-glow {
-  background: rgba(64, 224, 208, 0.15);
-  border: 1px solid rgba(64, 224, 208, 0.3);
+  background: linear-gradient(90deg, #4FD1C5 0%, #8A2BE2 100%);
+  border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  color: black;
+  color: white;
   font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
 }
 .btn-glass-glow:hover {
-  background: rgba(64, 224, 208, 0.25);
-  box-shadow: 0 0 15px rgba(64, 224, 208, 0.7);
+  background: linear-gradient(90deg, #8A2BE2 0%, #4FD1C5 100%);
+  box-shadow: 0 0 25px rgba(0,191,255,0.8);
   transform: translateY(-2px);
 }
 
-/* ===================== */
-/* Special Effects Buttons */
-/* ===================== */
-.btn-shimmer {
-  background: linear-gradient(90deg, #40E0D0, #00CED1, #40E0D0);
-  background-size: 200% 200%;
-  color: black;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  animation: shimmer 3s linear infinite;
-}
-@keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-.btn-ripple {
-  position: relative;
-  overflow: hidden;
-  background: rgba(64, 224, 208, 0.15);
-  color: black;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-}
-.btn-ripple::after {
-  content: "";
-  position: absolute;
-  width: 20px; height: 20px;
-  top: var(--y, 50%);
-  left: var(--x, 50%);
-  background: rgba(64, 224, 208, 0.4);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  animation: ripple 0.6s linear;
-}
-@keyframes ripple {
-  to { transform: translate(-50%, -50%) scale(15); opacity: 0; }
-}
-
-.btn-morph {
-  background: rgba(64, 224, 208, 0.15);
-  color: black;
-  padding: 0.75rem 1.5rem;
-  border-radius: 1rem;
-  font-weight: 600;
-  transition: all 0.4s ease;
-}
-.btn-morph:hover {
-  border-radius: 2rem;
-  background: rgba(64, 224, 208, 0.25);
-}
-
-.btn-gradient {
-  background: linear-gradient(45deg, #40E0D0, #20B2AA);
-  color: black;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  transition: background 0.5s ease;
-}
-.btn-gradient:hover {
-  background: linear-gradient(45deg, #20B2AA, #40E0D0);
-}
-
-.btn-particles {
-  position: relative;
-  background: rgba(64, 224, 208, 0.15);
-  color: black;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  overflow: hidden;
-}
-.btn-particles:hover::before {
-  content: "✨";
-  position: absolute;
-  left: 10%;
-  top: -10%;
-  animation: fall 1.5s linear infinite;
-}
-@keyframes fall {
-  to { transform: translateY(200%); opacity: 0; }
-}
-
-/* ===================== */
-/* Particle Background (Hero) */
-/* ===================== */
+/* ---- Particle Background ---- */
 .hero-particles {
   position: absolute;
   inset: 0;
@@ -163,8 +83,9 @@
 }
 .hero-particle {
   position: absolute;
-  width: 6px; height: 6px;
-  background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #8A2BE2 0%, transparent 70%);
   border-radius: 50%;
   animation: floatUp 6s linear infinite;
   opacity: 0.8;
@@ -175,67 +96,12 @@
   100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
-/* Golden glow for logo */
-.logo-gold {
-  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))
-          drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
-  transition: filter 0.3s ease;
-}
-
-.logo-gold:hover {
-  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
-          drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
-}
-/* Ensure normal text stays white */
-p, input, textarea, label, div {
-  color: white;
-}
-
-/* Override inside glass panels */
-.glass {
-  color: white;
-}
-/* ===================== */
-/* Global Text Colors */
-/* ===================== */
-
-/* All text defaults to white except hero title */
+/* ---- Global Text ---- */
 body, p, h2, h3, h4, h5, h6, a, input, textarea, label, div, span, footer {
   color: white;
 }
 
-/* Hero title remains black with golden glow */
-.hero-gold {
-  color: black;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  text-shadow:
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);
-}
-
-.sparkle-hover:hover {
-  animation: sparkle 1.5s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.7); }
-  50% { text-shadow: 0 0 32px rgba(255, 215, 0, 1), 0 0 52px rgba(255, 215, 0, 0.8); }
-}
-
-/* Golden glow for logo */
-.logo-gold {
-  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))
-          drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
-  transition: filter 0.3s ease;
-}
-.logo-gold:hover {
-  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
-          drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
-}
+/* ---- Responsive Hero Font ---- */
 @media (max-width: 640px) {
-  .hero-gold {
-    font-size: 2.5rem; /* smaller hero title */
-  }
+  .hero-gold { font-size: 2.5rem; }
 }
