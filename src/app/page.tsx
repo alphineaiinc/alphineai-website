@@ -50,10 +50,18 @@ export default function Home() {
         </p>
 
         {/* Hero Buttons */}
-        <div id="demo" className="mt-6 flex flex-wrap gap-4 justify-center relative z-10">
-          <a href="#contact" className="btn-glass-glow">Book a Demo</a>
-          <a href="#products" className="btn-glass-glow">See Products</a>
-        </div>
+        <div
+  id="demo"
+  className="mt-6 flex flex-col sm:flex-row gap-4 justify-center relative z-10 w-full max-w-sm mx-auto"
+>
+  <a href="#contact" className="btn-glass-glow w-full sm:w-auto text-center">
+    Book a Demo
+  </a>
+  <a href="#products" className="btn-glass-glow w-full sm:w-auto text-center">
+    See Products
+  </a>
+</div>
+
       </section>
 
       {/* PRODUCTS */}
@@ -61,7 +69,8 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
           Products
         </h2>
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
+        <div className="max-w-2xl mx-auto mt-8 glass p-4 sm:p-6">
+
           <div className="glass p-6">
             <h3 className="text-xl font-semibold mb-2">Automated Call Attender (ACA)</h3>
             <p>Real-time voice agent that answers calls, takes orders, and handles FAQs with live STT/TTS.</p>

@@ -234,3 +234,8 @@ body, p, h2, h3, h4, h5, h6, a, input, textarea, label, div, span, footer {
   filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
           drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
 }
+@media (max-width: 640px) {
+  .hero-gold {
+    font-size: 2.5rem; /* smaller hero title */
+  }
+}
