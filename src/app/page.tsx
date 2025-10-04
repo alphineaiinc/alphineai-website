@@ -13,17 +13,39 @@ export default function Home() {
   return (
     <div className="space-y-24">
       {/* HERO */}
-      <section id="hero" className="pt-6">
-        <div className="flex flex-col items-center text-center">
-          <Image src="/logo.png" alt="Alphine AI Logo" width={120} height={120} className="mb-4" />
-          <h1 className="text-6xl font-extrabold hero-gold sparkle-hover">Alphine AI</h1>
-          <p className="max-w-2xl mx-auto mt-6 glass p-4">
-            The future of AI for businesses — chat, voice, and automation that actually moves your metrics.
-          </p>
-          <div id="demo" className="mt-6 flex flex-wrap gap-4 justify-center">
-            <a href="#contact" className="btn-glass-glow">Book a Demo</a>
-            <a href="#products" className="btn-glass-glow">See Products</a>
-          </div>
+      <section id="hero" className="pt-6 relative flex flex-col items-center text-center">
+        {/* Golden particles background */}
+        <div className="hero-particles">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <span
+              key={i}
+              className="hero-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDuration: `${4 + Math.random() * 6}s`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Logo */}
+        <Image src="/logo.png" alt="Alphine AI Logo" width={120} height={120} className="mb-4 relative z-10" />
+
+        {/* Title */}
+        <h1 className="text-6xl font-extrabold hero-gold sparkle-hover relative z-10">
+          Alphine AI
+        </h1>
+
+        {/* Subtitle */}
+        <p className="max-w-2xl mx-auto mt-6 glass p-4 relative z-10">
+          The future of AI for businesses — chat, voice, and automation that actually moves your metrics.
+        </p>
+
+        {/* Hero Buttons */}
+        <div id="demo" className="mt-6 flex flex-wrap gap-4 justify-center relative z-10">
+          <a href="#contact" className="btn-glass-glow">Book a Demo</a>
+          <a href="#products" className="btn-glass-glow">See Products</a>
         </div>
       </section>
 
