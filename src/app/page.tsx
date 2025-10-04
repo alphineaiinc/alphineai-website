@@ -118,19 +118,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EFFECTS SHOWCASE */}
-      <section className="scroll-mt-20">
-        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
-          Explore Effects
-        </h2>
-        <div className="mt-8 flex flex-wrap gap-4 justify-center">
-          <button className="btn-shimmer">Shimmer</button>
-          <button className="btn-ripple" onClick={setRipple}>Ripple</button>
-          <button className="btn-morph">Morph</button>
-          <button className="btn-gradient">Gradient Shift</button>
-          <button className="btn-particles">Particles</button>
-        </div>
-      </section>
+      <footer className="text-center py-6 text-white opacity-80 text-sm">
+  © {new Date().getFullYear()} Alphine AI. All rights reserved.
+</footer>
+
     </div>
   );
 }
