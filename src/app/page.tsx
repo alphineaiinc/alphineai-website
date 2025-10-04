@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Home() {
-  // Helper for ripple position on click buttons (bottom showcase)
+  // Ripple button effect
   const setRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = (e.target as HTMLButtonElement).getBoundingClientRect();
     (e.target as HTMLButtonElement).style.setProperty("--x", `${e.clientX - rect.left}px`);
@@ -13,9 +15,7 @@ export default function Home() {
       {/* HERO */}
       <section id="hero" className="pt-6">
         <div className="flex flex-col items-center text-center">
-          {/* Logo centered above title */}
           <Image src="/logo.png" alt="Alphine AI Logo" width={120} height={120} className="mb-4" />
-          {/* Title: black text with golden glow + sparkle on hover */}
           <h1 className="text-6xl font-extrabold hero-gold sparkle-hover">Alphine AI</h1>
           <p className="max-w-2xl mx-auto mt-6 glass p-4">
             The future of AI for businesses — chat, voice, and automation that actually moves your metrics.
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOTTOM EFFECTS SHOWCASE (uniformly “playful zone”) */}
+      {/* EFFECTS SHOWCASE */}
       <section className="scroll-mt-20">
         <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2">Explore Effects</h2>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
