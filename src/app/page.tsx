@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,29 +11,70 @@ export default function Home() {
     (e.target as HTMLButtonElement).style.setProperty("--y", `${e.clientY - rect.top}px`);
   };
 
+  // Parallax gold-dust reference and logic
+  const goldDustRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const layer = goldDustRef.current;
+    if (!layer) return;
+
+    const handleMove = (e: MouseEvent | DeviceOrientationEvent) => {
+      let x = 0, y = 0;
+      if (e instanceof MouseEvent) {
+        x = (e.clientX / window.innerWidth - 0.5) * 20;
+        y = (e.clientY / window.innerHeight - 0.5) * 20;
+      } else if (e.beta && e.gamma) {
+        x = e.gamma / 5;
+        y = e.beta / 5;
+      }
+      layer.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("deviceorientation", handleMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("deviceorientation", handleMove);
+    };
+  }, []);
+
   return (
     <div className="space-y-24">
       {/* HERO */}
       <section
         id="hero"
-        className="pt-10 pb-12 relative flex flex-col items-center text-center px-4"
+        className="pt-10 pb-12 relative flex flex-col items-center text-center px-4 overflow-hidden"
       >
-        {/* Background particles */}
-        {/* Gold Dust Parallax Layer */}
-<div className="hero-gold-dust">
-  {Array.from({ length: 25 }).map((_, i) => (
-    <span
-      key={i}
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDuration: `${10 + Math.random() * 10}s`,
-        animationDelay: `${Math.random() * 10}s`,
-      }}
-    />
-  ))}
-</div>
+        {/* Gold-dust parallax layer */}
+        <div ref={goldDustRef} className="hero-gold-dust">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <span
+              key={i}
+              className="gold-dust"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDuration: `${10 + Math.random() * 10}s`,
+                animationDelay: `${Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
 
+        {/* Particle glow layer */}
+        <div className="hero-particles">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <span
+              key={i}
+              className="hero-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDuration: `${4 + Math.random() * 6}s`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
 
         {/* Logo */}
         <Image
@@ -44,9 +86,7 @@ export default function Home() {
         />
 
         {/* Title */}
-        <h1
-          className="text-4xl sm:text-6xl font-extrabold hero-gold sparkle-hover relative z-10 leading-tight"
-        >
+        <h1 className="text-4xl sm:text-6xl font-extrabold hero-gold sparkle-hover relative z-10 leading-tight">
           Alphine AI
         </h1>
 
@@ -123,8 +163,7 @@ export default function Home() {
           </p>
           <p>
             Our pillars: <strong>Trust</strong> (data minimization & encryption),{" "}
-            <strong>Value</strong> (rapid ROI), and <strong>Clarity</strong> (explainable decisions and transparent
-            metrics).
+            <strong>Value</strong> (rapid ROI), and <strong>Clarity</strong> (explainable decisions and transparent metrics).
           </p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="glass p-4">
