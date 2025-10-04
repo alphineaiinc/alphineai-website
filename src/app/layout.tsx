@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col text-black 
+                 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 
+                 backdrop-blur-xl">
+
+
         <header className="sticky top-0 z-50 bg-white/30 backdrop-blur-lg border-b border-white/20 shadow-md">
           <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             <a href="#hero" className="font-bold text-xl">Alphine AI</a>

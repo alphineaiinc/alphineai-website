@@ -10,11 +10,27 @@ html { scroll-behavior: smooth; }
 .glass { @apply bg-white/20 backdrop-blur-md border border-white/30 shadow-md rounded-xl; }
 
 /* ——— HERO: “Alphine AI” black text + golden glow + sparkle on hover ——— */
+/* Hero title: black text + golden glow */
 .hero-gold {
-  color: #111; /* keep text black */
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.55),
-               0 0 22px rgba(255, 200, 0, 0.35);
-  transition: text-shadow .25s ease;
+  color: black; /* keep text black */
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow: 
+    0 0 12px rgba(255, 215, 0, 0.7), 
+    0 0 24px rgba(255, 215, 0, 0.5),
+    0 0 36px rgba(255, 215, 0, 0.3);
+}
+
+/* Sparkle animation on hover */
+.sparkle-hover:hover {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.7); }
+  50% { text-shadow: 0 0 32px rgba(255, 215, 0, 1), 0 0 52px rgba(255, 215, 0, 0.8); }
+}
+
 }
 .hero-gold:hover {
   text-shadow: 0 0 16px rgba(255, 215, 0, 0.9),
