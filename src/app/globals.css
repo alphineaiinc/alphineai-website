@@ -220,3 +220,56 @@ html { scroll-behavior: smooth; }
   20%  { opacity: 1; }
   100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
+
+/* Glass look for all sections/cards */
+.glass {
+  background: rgba(240, 240, 240, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  color: black; /* default text inside glass */
+}
+
+/* Golden hero title */
+.hero-gold {
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.8), 0 0 24px rgba(255, 215, 0, 0.6);
+}
+
+/* Sparkle on hover */
+.sparkle-hover:hover {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.8); }
+  50% { text-shadow: 0 0 28px rgba(255, 215, 0, 1), 0 0 45px rgba(255, 215, 0, 0.8); }
+}
+
+/* Turquoise glow for other titles */
+.title-turquoise {
+  color: black;
+  text-shadow: 0 0 12px rgba(64, 224, 208, 0.7), 0 0 24px rgba(64, 224, 208, 0.5);
+}
+
+/* Turquoise glass buttons */
+.btn-glass-glow {
+  background: rgba(64, 224, 208, 0.15);
+  border: 1px solid rgba(64, 224, 208, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  color: black;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-glass-glow:hover {
+  background: rgba(64, 224, 208, 0.25);
+  box-shadow: 0 0 15px rgba(64, 224, 208, 0.7);
+  transform: translateY(-2px);
+}

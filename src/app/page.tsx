@@ -51,7 +51,9 @@ export default function Home() {
 
       {/* PRODUCTS */}
       <section id="products" className="scroll-mt-20">
-        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2">Products</h2>
+        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
+          Products
+        </h2>
         <div className="grid md:grid-cols-3 gap-6 mt-10">
           <div className="glass p-6">
             <h3 className="text-xl font-semibold mb-2">Automated Call Attender (ACA)</h3>
@@ -73,7 +75,9 @@ export default function Home() {
 
       {/* ABOUT */}
       <section id="about" className="scroll-mt-20">
-        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2">About Alphine AI</h2>
+        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
+          About Alphine AI
+        </h2>
         <div className="max-w-3xl mx-auto mt-8 space-y-4">
           <p>
             Alphine AI builds practical AI for small and medium businesses. We focus on voice bots, chat automation,
@@ -93,7 +97,9 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="scroll-mt-20">
-        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2">Contact Us</h2>
+        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
+          Contact Us
+        </h2>
         <div className="max-w-2xl mx-auto mt-8 glass p-6">
           <form className="grid gap-4">
             <input type="text" placeholder="Your Name" className="glass px-4 py-2 w-full" />
@@ -107,7 +113,9 @@ export default function Home() {
 
       {/* EFFECTS SHOWCASE */}
       <section className="scroll-mt-20">
-        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2">Explore Effects</h2>
+        <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
+          Explore Effects
+        </h2>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <button className="btn-shimmer">Shimmer</button>
           <button className="btn-ripple" onClick={setRipple}>Ripple</button>
