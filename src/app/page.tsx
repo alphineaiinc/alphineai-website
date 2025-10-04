@@ -13,8 +13,11 @@ export default function Home() {
   return (
     <div className="space-y-24">
       {/* HERO */}
-      <section id="hero" className="pt-6 relative flex flex-col items-center text-center">
-        {/* Golden particles background */}
+      <section
+        id="hero"
+        className="pt-10 pb-12 relative flex flex-col items-center text-center px-4"
+      >
+        {/* Background particles */}
         <div className="hero-particles">
           {Array.from({ length: 20 }).map((_, i) => (
             <span
@@ -31,66 +34,83 @@ export default function Home() {
 
         {/* Logo */}
         <Image
-  src="/logo.png"
-  alt="Alphine AI Logo"
-  width={120}
-  height={120}
-  className="mb-4 relative z-10 logo-gold"
-/>
-
+          src="/logo.png"
+          alt="Alphine AI Logo"
+          width={100}
+          height={100}
+          className="mb-3 sm:mb-4 relative z-10 logo-gold"
+        />
 
         {/* Title */}
-        <h1 className="text-6xl font-extrabold hero-gold sparkle-hover relative z-10">
+        <h1
+          className="text-4xl sm:text-6xl font-extrabold hero-gold sparkle-hover relative z-10 leading-tight"
+        >
           Alphine AI
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl mx-auto mt-6 glass p-4 relative z-10">
+        <p className="max-w-2xl mx-auto mt-5 glass p-3 sm:p-4 relative z-10 text-base sm:text-lg">
           The future of AI for businesses — chat, voice, and automation that actually moves your metrics.
         </p>
 
         {/* Hero Buttons */}
         <div
-  id="demo"
-  className="mt-6 flex flex-col sm:flex-row gap-4 justify-center relative z-10 w-full max-w-sm mx-auto"
->
-  <a href="#contact" className="btn-glass-glow w-full sm:w-auto text-center">
-    Book a Demo
-  </a>
-  <a href="#products" className="btn-glass-glow w-full sm:w-auto text-center">
-    See Products
-  </a>
-</div>
-
+          id="demo"
+          className="mt-6 flex flex-col sm:flex-row gap-4 justify-center relative z-10 w-full max-w-sm mx-auto"
+        >
+          <a href="#contact" className="btn-glass-glow w-full sm:w-auto text-center">
+            Book a Demo
+          </a>
+          <a href="#products" className="btn-glass-glow w-full sm:w-auto text-center">
+            See Products
+          </a>
+        </div>
       </section>
 
       {/* PRODUCTS */}
-      <section id="products" className="scroll-mt-20">
+      <section id="products" className="scroll-mt-20 px-4">
         <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
           Products
         </h2>
-        <div className="max-w-2xl mx-auto mt-8 glass p-4 sm:p-6">
-
+        <div className="grid md:grid-cols-3 gap-6 mt-10">
           <div className="glass p-6">
             <h3 className="text-xl font-semibold mb-2">Automated Call Attender (ACA)</h3>
-            <p>Real-time voice agent that answers calls, takes orders, and handles FAQs with live STT/TTS.</p>
-            <div className="mt-4"><a href="#contact" className="btn-glass-glow">Request Demo</a></div>
+            <p>
+              Real-time voice agent that answers calls, takes orders, and handles FAQs with live STT/TTS.
+            </p>
+            <div className="mt-4">
+              <a href="#contact" className="btn-glass-glow">
+                Request Demo
+              </a>
+            </div>
           </div>
           <div className="glass p-6">
             <h3 className="text-xl font-semibold mb-2">AI Chatbots</h3>
-            <p>Website and WhatsApp chatbots with retrieval, function-calling, and analytics.</p>
-            <div className="mt-4"><a href="#contact" className="btn-glass-glow">Request Demo</a></div>
+            <p>
+              Website and WhatsApp chatbots with retrieval, function-calling, and analytics.
+            </p>
+            <div className="mt-4">
+              <a href="#contact" className="btn-glass-glow">
+                Request Demo
+              </a>
+            </div>
           </div>
           <div className="glass p-6">
             <h3 className="text-xl font-semibold mb-2">Social Media AI</h3>
-            <p>Generate, schedule, and monitor posts across platforms with brand-safe prompts.</p>
-            <div className="mt-4"><a href="#contact" className="btn-glass-glow">Request Demo</a></div>
+            <p>
+              Generate, schedule, and monitor posts across platforms with brand-safe prompts.
+            </p>
+            <div className="mt-4">
+              <a href="#contact" className="btn-glass-glow">
+                Request Demo
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="scroll-mt-20">
+      <section id="about" className="scroll-mt-20 px-4">
         <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
           About Alphine AI
         </h2>
@@ -100,38 +120,49 @@ export default function Home() {
             and operational AI that shortens response times and drives revenue.
           </p>
           <p>
-            Our pillars: <strong>Trust</strong> (data minimization & encryption), <strong>Value</strong> (rapid ROI),
-            and <strong>Clarity</strong> (explainable decisions and transparent metrics).
+            Our pillars: <strong>Trust</strong> (data minimization & encryption),{" "}
+            <strong>Value</strong> (rapid ROI), and <strong>Clarity</strong> (explainable decisions and transparent
+            metrics).
           </p>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="glass p-4"><b>Vision</b><div>Make high-quality AI accessible to every local business.</div></div>
-            <div className="glass p-4"><b>Mission</b><div>Deliver measurable outcomes with delightful customer experiences.</div></div>
-            <div className="glass p-4"><b>Motto</b><div>“Intelligence. Clarity. Growth.”</div></div>
+            <div className="glass p-4">
+              <b>Vision</b>
+              <div>Make high-quality AI accessible to every local business.</div>
+            </div>
+            <div className="glass p-4">
+              <b>Mission</b>
+              <div>Deliver measurable outcomes with delightful customer experiences.</div>
+            </div>
+            <div className="glass p-4">
+              <b>Motto</b>
+              <div>“Intelligence. Clarity. Growth.”</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="scroll-mt-20">
+      <section id="contact" className="scroll-mt-20 px-4">
         <h2 className="text-3xl font-bold text-center glass inline-block px-4 py-2 title-turquoise">
           Contact Us
         </h2>
-        <div className="max-w-2xl mx-auto mt-8 glass p-6">
+        <div className="max-w-2xl mx-auto mt-8 glass p-4 sm:p-6">
           <form className="grid gap-4">
             <input type="text" placeholder="Your Name" className="glass px-4 py-2 w-full" />
             <input type="email" placeholder="Your Email" className="glass px-4 py-2 w-full" />
             <textarea placeholder="Message" rows={5} className="glass px-4 py-2 w-full"></textarea>
-            <button type="submit" className="btn-glass-glow">Send Message</button>
+            <button type="submit" className="btn-glass-glow">
+              Send Message
+            </button>
           </form>
-          <div className="text-sm text-gray-600 mt-4">Or email: contact@alphineai.com</div>
+          <div className="text-sm mt-4 opacity-80">Or email: contact@alphineai.com</div>
         </div>
       </section>
 
-     <footer className="text-center py-6 text-white opacity-80 text-sm">
-  © {new Date().getFullYear()} Alphine AI. All rights reserved.
-</footer>
-
-
+      {/* FOOTER */}
+      <footer className="text-center py-6 text-white opacity-80 text-sm">
+        © {new Date().getFullYear()} Alphine AI. All rights reserved.
+      </footer>
     </div>
   );
 }
