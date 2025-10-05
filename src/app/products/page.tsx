@@ -1,55 +1,112 @@
+"use client";
+
+import Link from "next/link";
+
+type Product = {
+  title: string;
+  problem: string;
+  building: string;
+  benefits: string[];
+};
+
+const products: Product[] = [
+  {
+    title: "Automated Voice & Conversation Platform (ACA)",
+    problem:
+      "Organizations lose opportunities when calls go unanswered, conversations aren’t captured, or follow-ups fail. Manual handling is costly, inconsistent, and difficult to measure.",
+    building:
+      "A real-time, multilingual conversation layer that understands intent, routes requests, and completes tasks. Low-latency speech, explainable decisions, and secure integrations form the backbone.",
+    benefits: [
+      "Capture every call, 24/7, with consistent quality.",
+      "Reduce operational workload with automated routing and summaries.",
+      "Plug into CRM, ticketing, and knowledge bases with clear audit trails.",
+      "Privacy-first design with minimized retention.",
+    ],
+  },
+  {
+    title: "Global Attendance & Participation Intelligence",
+    problem:
+      "Large gatherings and programs often rely on estimates. Without defensible measurement, planning, safety, and transparency are compromised.",
+    building:
+      "A secure, privacy-respecting platform for verifying participation across physical and virtual contexts, using geospatial checks, consent flows, and cross-validation techniques.",
+    benefits: [
+      "Replace speculation with verifiable metrics and confidence intervals.",
+      "Improve logistics, safety, and reporting with trustworthy numbers.",
+      "Respect regional regulations and cultural expectations.",
+      "Actionable dashboards with exportable evidence.",
+    ],
+  },
+  {
+    title: "Social & Engagement Automation",
+    problem:
+      "Teams struggle to maintain consistent, context-aware engagement across channels; insights are fragmented and slow.",
+    building:
+      "An AI-driven engagement engine that plans, drafts, and analyzes cross-channel communication, tuned for brand voice and measurable outcomes.",
+    benefits: [
+      "Consistent presence with less manual effort.",
+      "Insightful analytics that tie engagement to outcomes.",
+      "Rapid experimentation with safe-guardrails.",
+      "Reusable knowledge to accelerate future campaigns.",
+    ],
+  },
+  {
+    title: "Knowledge Orchestrator & Insight Hub",
+    problem:
+      "Institutional knowledge is scattered across docs, chats, and tools. Retrieval is slow and context is lost.",
+    building:
+      "A secure knowledge layer that ingests, normalizes, and retrieves facts with source citations, versioning, and access controls.",
+    benefits: [
+      "Faster answers with higher confidence.",
+      "Source-linked outputs and auditability.",
+      "Role-based access and least-privilege by default.",
+      "Works with existing storage; no lock-in.",
+    ],
+  },
+];
+
 export default function ProductsPage() {
   return (
-    <section className="min-h-[90vh] flex flex-col items-center text-center px-8">
-      <h1 className="text-5xl font-bold text-yellow-400 mb-6">Our Products</h1>
-
-      <p className="max-w-4xl text-gray-300 leading-relaxed text-lg mb-10">
-        Alphine AI develops advanced AI platforms that bridge the gap between physical
-        presence and digital intelligence. Our flagship innovation — the
-        <span className="text-yellow-400 font-semibold"> Global Event Attendance & Verification System </span> —
-        transforms the way humanity measures participation at scale.
+    <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
+      <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">Products</h1>
+      <p className="mt-3 text-gray-700">
+        These are the platforms we’re actively building and validating. More will be added soon.
       </p>
 
-      <div className="max-w-5xl text-left text-gray-300 space-y-6">
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">🛰️ Event Attendance Intelligence</h2>
-          <p>
-            This system combines GPS-based clustering, mobile validation, satellite imagery, and
-            secure AI inference to estimate live crowd density and verify unique attendance
-            counts in real time. Governments can use it for safety and logistics; organizations
-            can use it for auditing and reporting; citizens can use it to trust the numbers they
-            read in the news.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">📞 Automated Call Attender (ACA)</h2>
-          <p>
-            Our secondary platform revolutionizes how small and medium businesses handle inbound
-            calls using voice AI trained on business knowledge, enabling instant, multilingual
-            conversation with customers — increasing productivity while maintaining a human touch.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">📊 Smart Data & Insight Layer</h2>
-          <p>
-            Every Alphine AI solution integrates with a centralized analytics layer that provides
-            secure dashboards, anomaly detection, and predictive modeling. This gives event
-            organizers and authorities early warnings about potential overcrowding, flow patterns,
-            or under-reported participation.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">🔐 Privacy-First Design</h2>
-          <p>
-            We implement encryption at every stage, anonymize personal identifiers, and store
-            sensitive information in compliance with global privacy laws such as GDPR, ensuring
-            transparency without compromising individual rights.
-          </p>
-        </div>
+      <div className="mt-10 grid md:grid-cols-2 gap-6">
+        {products.map((p) => (
+          <div key={p.title} className="border rounded-2xl p-6 bg-white shadow-sm">
+            <h2 className="text-xl font-bold text-[#B8860B]">{p.title}</h2>
+            <div className="mt-3">
+              <p className="font-semibold">Problem</p>
+              <p className="text-gray-700">{p.problem}</p>
+            </div>
+            <div className="mt-3">
+              <p className="font-semibold">What we’re building</p>
+              <p className="text-gray-700">{p.building}</p>
+            </div>
+            <div className="mt-3">
+              <p className="font-semibold">Benefits</p>
+              <ul className="list-disc pl-5 text-gray-700">
+                {p.benefits.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-5">
+              <Link
+                href="#demo"
+                className="inline-block px-4 py-2 rounded-lg border border-[#B8860B] text-[#B8860B] hover:bg-[#B8860B] hover:text-white transition"
+              >
+                View Demo
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+
+      <p className="mt-10 text-gray-600">
+        Note: Each product is under active development. Demos and technical documentation will be published progressively.
+      </p>
+    </div>
   );
 }

@@ -1,34 +1,42 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ContactPage() {
+  const [state, setState] = useState<{ ok?: boolean; msg?: string }>({});
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const payload = Object.fromEntries(form.entries());
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    setState({ ok: data.ok, msg: data.message });
+    if (data.ok) (e.currentTarget as HTMLFormElement).reset();
+  }
+
   return (
-    <section className="min-h-[85vh] flex flex-col items-center text-center px-8">
-      <h1 className="text-5xl font-bold text-yellow-400 mb-6">Contact Alphine AI</h1>
+    <div className="max-w-4xl mx-auto px-6 md:px-10 py-12">
+      <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">Contact</h1>
+      <p className="mt-3 text-gray-800">Send us a note. We’ll get back to you promptly.</p>
 
-      <p className="max-w-3xl text-gray-300 leading-relaxed text-lg mb-8">
-        We believe in open collaboration. Whether you are a government agency, NGO, research
-        institution, or private event organizer, Alphine AI welcomes partnerships that aim to
-        make human gatherings smarter, safer, and more transparent.
-      </p>
-
-      <div className="bg-gray-800/50 p-8 rounded-xl shadow-lg max-w-md w-full mb-8">
-        <p className="text-gray-400 mb-2">Email us directly:</p>
-        <a
-          href="mailto:contact@alphineai.com"
-          className="text-yellow-400 hover:text-yellow-300 font-semibold text-lg"
+      <form onSubmit={onSubmit} className="mt-6 grid gap-4 border rounded-2xl p-6 bg-white">
+        <input name="name" required placeholder="Full Name" className="border p-3 rounded-md" />
+        <input name="email" type="email" required placeholder="Email" className="border p-3 rounded-md" />
+        <input name="subject" required placeholder="Subject" className="border p-3 rounded-md" />
+        <textarea name="message" required placeholder="Your message" className="border p-3 rounded-md min-h-[140px]" />
+        <button
+          className="justify-self-start px-4 py-2 rounded-lg border border-[#B8860B] text-[#B8860B] hover:bg-[#B8860B] hover:text-white transition"
+          type="submit"
         >
-          contact@alphineai.com
-        </a>
-
-        <div className="mt-6 border-t border-gray-700 pt-4 text-sm text-gray-400">
-          Alphine AI Headquarters<br />
-          Mississauga, Ontario, Canada<br />
-          Operating globally with partners in Asia, Europe, and North America.
-        </div>
-      </div>
-
-      <p className="max-w-3xl text-gray-300 leading-relaxed text-lg">
-        Reach out if you want to collaborate, pilot our technology for an event, or simply learn
-        how AI can make participation measurement more accurate and ethical.
-      </p>
-    </section>
+          Send
+        </button>
+        {state.msg && <p className={`text-sm ${state.ok ? "text-green-600" : "text-red-600"}`}>{state.msg}</p>}
+      </form>
+    </div>
   );
 }

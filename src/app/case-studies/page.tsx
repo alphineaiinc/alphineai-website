@@ -1,60 +1,42 @@
 export default function CaseStudiesPage() {
-  return (
-    <section className="min-h-[95vh] flex flex-col items-center text-center px-8">
-      <h1 className="text-5xl font-bold text-yellow-400 mb-6">Case Studies & Pilot Projects</h1>
+  const items = [
+    {
+      title: "Conversation Platform (ACA)",
+      plan:
+        "Pilot deployments to measure answer rates, resolution speed, and customer satisfaction. Compare cost-per-conversation vs. manual handling.",
+    },
+    {
+      title: "Attendance & Participation",
+      plan:
+        "Run controlled trials to validate verification accuracy and reporting transparency under varied network and regional conditions.",
+    },
+    {
+      title: "Engagement Automation",
+      plan:
+        "A/B testing for content quality, cadence, and conversion impact; build repeatable playbooks aligned with brand voice.",
+    },
+    {
+      title: "Knowledge Orchestrator",
+      plan:
+        "Evaluate retrieval accuracy, source coverage, and time-to-answer; measure agent productivity gains with audit trails.",
+    },
+  ];
 
-      <p className="max-w-4xl text-gray-300 text-lg leading-relaxed mb-10">
-        Alphine AI’s technology has been quietly tested in diverse real-world scenarios to prove
-        its scalability, accuracy, and social benefit. Each pilot demonstrates how verified
-        attendance data can transform planning, safety, and transparency.
+  return (
+    <div className="max-w-6xl mx-auto px-6 md:px-10 py-12">
+      <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">Case Studies (Planned)</h1>
+      <p className="mt-3 text-gray-700">
+        We are outlining objective, verifiable studies for each product. Results will be shared transparently as pilots complete.
       </p>
 
-      <div className="max-w-5xl text-left text-gray-300 space-y-10">
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">
-            🎉 Religious Festival Attendance Analysis – India
-          </h2>
-          <p>
-            During a multi-day pilgrimage attracting over one million visitors, Alphine AI combined
-            satellite imagery and geo-tagged checkpoints to calculate real-time density and entry
-            flow. The system helped local authorities manage crowd logistics and emergency routes
-            more efficiently than ever before.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">
-            🏃 National Marathon Tracking Pilot – Canada
-          </h2>
-          <p>
-            By integrating GPS pings from participant apps with checkpoint IoT sensors, Alphine AI
-            produced verified live counts of runners completing each stage. The data informed
-            dynamic hydration-point resupply and improved volunteer allocation by 27%.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">
-            🎓 University Convocation Verification – United States
-          </h2>
-          <p>
-            Large-scale hybrid convocations often struggle with attendance validation.
-            Alphine AI’s virtual + physical fusion layer identified unique logins, seat scans,
-            and QR check-ins to deliver a tamper-proof participation certificate for each graduate.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl text-yellow-400 mb-2">
-            🎵 Music Festival Smart Entry – United Kingdom
-          </h2>
-          <p>
-            Partnering with event organizers, Alphine AI tested AI-enabled gates capable of counting
-            verified entrants per second while maintaining privacy using anonymized face
-            embeddings. The pilot eliminated ticket-fraud incidents and reduced wait time by 43%.
-          </p>
-        </div>
+      <div className="mt-8 grid md:grid-cols-2 gap-6">
+        {items.map((i) => (
+          <div key={i.title} className="border rounded-2xl p-6 bg-white shadow-sm">
+            <h2 className="text-xl font-bold text-[#B8860B]">{i.title}</h2>
+            <p className="mt-2 text-gray-800">{i.plan}</p>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
