@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { JsonLd, webPageJsonLd, breadcrumbsJsonLd } from "@/lib/seo";
 
+// ---------- Product Type ----------
 type Product = {
   title: string;
   problem: string;
@@ -9,6 +11,7 @@ type Product = {
   benefits: string[];
 };
 
+// ---------- Product List ----------
 const products: Product[] = [
   {
     title: "Automated Voice & Conversation Platform (ACA)",
@@ -65,8 +68,38 @@ const products: Product[] = [
 ];
 
 export default function ProductsPage() {
+  // ---------- Structured Data (JSON-LD) ----------
+  const productSchema = products.map((p) => ({
+    "@type": "Product",
+    name: p.title,
+    description: p.building,
+    brand: { "@type": "Organization", name: "Alphine AI" },
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Problem", value: p.problem },
+      { "@type": "PropertyValue", name: "Benefits", value: p.benefits.join(", ") },
+    ],
+  }));
+
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
+      {/* ---------- Structured Data JSON-LD ---------- */}
+      <JsonLd
+        json={webPageJsonLd({
+          title: "Alphine AI Products — Ethical, Scalable Intelligence Platforms",
+          description:
+            "Explore Alphine AI’s suite of intelligent platforms including ACA, Global Attendance Verification, Social Automation, and Knowledge Orchestrator.",
+          path: "/products",
+        })}
+      />
+      <JsonLd json={breadcrumbsJsonLd([{ name: "Home", path: "/" }, { name: "Products", path: "/products" }])} />
+      <JsonLd
+        json={{
+          "@context": "https://schema.org",
+          "@graph": productSchema,
+        }}
+      />
+
+      {/* ---------- Page Content ---------- */}
       <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">Products</h1>
       <p className="mt-3 text-gray-700">
         These are the platforms we’re actively building and validating. More will be added soon.

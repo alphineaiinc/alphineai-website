@@ -1,9 +1,12 @@
 "use client";
 
+
+import { useState } from "react"; // ✅ Add this line
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import Image from "next/image";
-import { useState } from "react";
+import { buildPageMetadata, webPageJsonLd, breadcrumbsJsonLd, JsonLd } from "@/lib/seo";
+
 
 const sections = [
   {
@@ -59,12 +62,25 @@ const sections = [
   },
 ];
 
-export default function AboutPage() {
+export default function HomePage() {
   const [spark, setSpark] = useState(false);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#2B2B2B] via-[#3A3A3A] to-[#1F1F1F] text-gray-200">
-      {/* Hero Section — replaced with logo + glowing Alphine AI */}
+      {/* ---------- SEO Structured Data (JSON-LD) ---------- */}
+      <JsonLd
+        json={webPageJsonLd({
+          title: "Alphine AI — Global Intelligence for a Connected World",
+          description:
+            "Welcome to Alphine AI — empowering organizations and societies through ethical, dependable, and globally connected artificial intelligence.",
+          path: "/",
+        })}
+      />
+      <JsonLd
+        json={breadcrumbsJsonLd([{ name: "Home", path: "/" }])}
+      />
+
+      {/* ---------- Hero Section ---------- */}
       <section className="flex flex-col items-center justify-center text-center pt-20 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,7 +128,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* Alternating Sections — unchanged */}
+      {/* ---------- Alternating Sections ---------- */}
       <div className="max-w-6xl mx-auto px-6 md:px-10 pb-20 space-y-12">
         {sections.map((sec, idx) => {
           const reverse = idx % 2 === 1;

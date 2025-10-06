@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Alphine AI",
+  description:
+    "Learn about Alphine AI’s vision, mission, and leadership — pioneering global, ethical, and dependable artificial intelligence solutions.",
+};
+
 export default function AboutPage() {
   return (
     <section
@@ -32,23 +40,22 @@ export default function AboutPage() {
         {/* Vision & Story */}
         <div className="space-y-6 leading-relaxed text-lg">
           <p>
-            <strong>Alphine AI</strong> was founded with a simple yet profound purpose —
-            to ensure that artificial intelligence benefits society through discipline,
-            innovation, and responsibility. We are at the dawn of an AI-driven era, and
+            <strong>Alphine AI</strong> was founded with a simple yet profound purpose — to ensure that artificial intelligence
+            benefits society through discipline, innovation, and responsibility. We are at the dawn of an AI-driven era, and
             Alphine AI is positioning itself to become one of the pioneers that shape this future.
           </p>
 
           <p>
-            Our founder and CEO <em>(to be announced soon)</em> brings over <strong>17 years of experience</strong> in
-            information technology — spanning banking, insurance, and enterprise data — combined with an extensive
-            understanding of AI and its limitless potential. With this foundation, Alphine AI aims to build technologies
-            that not only solve problems but also create measurable, sustainable impact.
+            Our founder and CEO <em>(to be announced soon)</em> brings over <strong>17 years of experience</strong> in information
+            technology — spanning banking, insurance, and enterprise data — combined with an extensive understanding of AI and
+            its limitless potential. With this foundation, Alphine AI aims to build technologies that not only solve problems but
+            also create measurable, sustainable impact.
           </p>
 
           <p>
-            As the world moves toward complete AI integration, Alphine AI stands ready with a clear vision and a firm
-            commitment: to build responsible AI ecosystems that serve humanity with precision and purpose. Every product,
-            every decision, every collaboration is guided by ethics, transparency, and accountability.
+            As the world moves toward complete AI integration, Alphine AI stands ready with a clear vision and a firm commitment:
+            to build responsible AI ecosystems that serve humanity with precision and purpose. Every product, every decision,
+            every collaboration is guided by ethics, transparency, and accountability.
           </p>
         </div>
 
@@ -56,14 +63,19 @@ export default function AboutPage() {
         <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-[#b38c00] mb-4">Our Goal & Core Values</h2>
           <p className="text-lg leading-relaxed">
-            Our goal is to bring AI-driven solutions to society’s most pressing challenges while ensuring quality and
-            trust in everything we do. We combine innovation with integrity so clients receive not just technology, but
-            durable confidence.
+            Our goal is to bring AI-driven solutions to society’s most pressing challenges while ensuring quality and trust in
+            everything we do. We combine innovation with integrity so clients receive not just technology, but durable confidence.
           </p>
           <ul className="list-disc list-inside mt-4 text-lg space-y-1">
-            <li><strong>Integrity:</strong> Ethics above everything.</li>
-            <li><strong>Innovation:</strong> Pushing AI boundaries responsibly.</li>
-            <li><strong>Impact:</strong> Delivering measurable results for society.</li>
+            <li>
+              <strong>Integrity:</strong> Ethics above everything.
+            </li>
+            <li>
+              <strong>Innovation:</strong> Pushing AI boundaries responsibly.
+            </li>
+            <li>
+              <strong>Impact:</strong> Delivering measurable results for society.
+            </li>
           </ul>
         </div>
 
@@ -71,8 +83,8 @@ export default function AboutPage() {
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-[#b38c00]">For Investors</h2>
           <p className="text-lg leading-relaxed">
-            Investing in Alphine AI means investing in the future. We’re shaping the AI landscape with discipline,
-            ethics, and purpose. We welcome strategic investors who believe in creating value beyond profit to join us.
+            Investing in Alphine AI means investing in the future. We’re shaping the AI landscape with discipline, ethics, and
+            purpose. We welcome strategic investors who believe in creating value beyond profit to join us.
           </p>
         </div>
 
@@ -80,8 +92,8 @@ export default function AboutPage() {
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-[#b38c00]">For Career Seekers</h2>
           <p className="text-lg leading-relaxed">
-            Alphine AI is where visionaries build the future. We’re seeking people passionate about AI, data science,
-            cloud systems, and ethical innovation to grow with us.
+            Alphine AI is where visionaries build the future. We’re seeking people passionate about AI, data science, cloud systems,
+            and ethical innovation to grow with us.
           </p>
           <div className="pt-2">
             <a

@@ -1,3 +1,22 @@
+import type { Metadata } from "next";
+import { buildPageMetadata, webPageJsonLd, breadcrumbsJsonLd, JsonLd } from "@/lib/seo";
+
+// ---------- FAQ Page Metadata ----------
+export const metadata: Metadata = buildPageMetadata({
+  title: "FAQ | Alphine AI",
+  description:
+    "Find answers to frequently asked questions about Alphine AI’s mission, technology, data security, and roadmap — covering privacy, reliability, compliance, and how to get involved.",
+  path: "/faq",
+  keywords: [
+    "Alphine AI FAQ",
+    "AI questions",
+    "AI data privacy",
+    "AI reliability",
+    "AI compliance",
+    "ethical AI",
+  ],
+});
+
 const faqs: { q: string; a: string }[] = [
   { q: "What is Alphine AI’s core focus?", a: "Building ethical, dependable AI platforms for communication, participation, engagement, and knowledge." },
   { q: "Are your products available today?", a: "We’re actively developing pilots; public releases will roll out progressively." },
@@ -27,9 +46,43 @@ const faqs: { q: string; a: string }[] = [
 ];
 
 export default function FAQPage() {
+  // ---------- JSON-LD Structured Data ----------
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a,
+      },
+    })),
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 md:px-10 py-12">
-      <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">Frequently Asked Questions</h1>
+      {/* ---------- Structured Data (JSON-LD) ---------- */}
+      <JsonLd
+        json={webPageJsonLd({
+          title: "FAQ | Alphine AI",
+          description:
+            "Find answers to frequently asked questions about Alphine AI’s mission, technology, data security, and roadmap — covering privacy, reliability, compliance, and how to get involved.",
+          path: "/faq",
+        })}
+      />
+      <JsonLd
+        json={breadcrumbsJsonLd([
+          { name: "Home", path: "/" },
+          { name: "FAQ", path: "/faq" },
+        ])}
+      />
+      <JsonLd json={faqSchema} />
+
+      {/* ---------- Page Content ---------- */}
+      <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">
+        Frequently Asked Questions
+      </h1>
       <div className="mt-8 space-y-6">
         {faqs.map((f, i) => (
           <div key={i} className="border rounded-xl p-5">

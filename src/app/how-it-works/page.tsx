@@ -1,3 +1,22 @@
+import type { Metadata } from "next";
+import { buildPageMetadata, webPageJsonLd, breadcrumbsJsonLd, JsonLd } from "@/lib/seo";
+
+// ---------- How It Works Page Metadata ----------
+export const metadata: Metadata = buildPageMetadata({
+  title: "How It Works | Alphine AI",
+  description:
+    "Discover how Alphine AI’s intelligent systems integrate speech, automation, and knowledge orchestration to deliver secure, ethical, and scalable solutions for global innovation.",
+  path: "/how-it-works",
+  keywords: [
+    "how Alphine AI works",
+    "AI workflow",
+    "AI automation process",
+    "AI technology",
+    "AI architecture",
+    "ethical AI systems",
+  ],
+});
+
 export default function HowItWorksPage() {
   const sections = [
     {
@@ -18,8 +37,47 @@ export default function HowItWorksPage() {
     },
   ];
 
+  // ---------- JSON-LD Structured Data ----------
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How Alphine AI Works",
+    description:
+      "An overview of Alphine AI’s intelligent system architecture integrating speech, automation, and knowledge orchestration for ethical, scalable solutions.",
+    step: sections.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      itemListElement: {
+        "@type": "HowToDirection",
+        text: s.desc,
+      },
+    })),
+    totalTime: "PT1M",
+    supply: [],
+    tool: [],
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-6 md:px-10 py-12 bg-white text-black">
+      {/* ---------- Structured Data (JSON-LD) ---------- */}
+      <JsonLd
+        json={webPageJsonLd({
+          title: "How It Works | Alphine AI",
+          description:
+            "Discover how Alphine AI’s intelligent systems integrate speech, automation, and knowledge orchestration to deliver secure, ethical, and scalable solutions for global innovation.",
+          path: "/how-it-works",
+        })}
+      />
+      <JsonLd
+        json={breadcrumbsJsonLd([
+          { name: "Home", path: "/" },
+          { name: "How It Works", path: "/how-it-works" },
+        ])}
+      />
+      <JsonLd json={howToSchema} />
+
+      {/* ---------- Page Content ---------- */}
       <h1 className="text-3xl md:text-4xl font-extrabold text-[#B8860B]">
         How It Works
       </h1>
